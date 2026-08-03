@@ -6,10 +6,10 @@ export const AGENCY_INFO = {
   tagline: "BUILD • LAUNCH • GROW",
   headline: "Helping UK Businesses Build, Launch & Grow Digitally.",
   subheadline: "Custom websites, mobile apps, branding, creative design, bookkeeping, accounting and business solutions—all delivered by one trusted digital agency.",
-  address: "100 Bishopsgate, London, EC2N 4AG, United Kingdom",
+  address: "Ancells Business Park, Harvest Crescent, Fleet, Hampshire, GU51",
   phone: "+44 (0)20 7946 0800",
   whatsapp: "+44 (0)20 7946 0912",
-  email: "hello@burstdigital.co.uk",
+  email: "Contact@theburstdigital.co.uk",
   workingHours: "Mon - Fri: 8:30 AM - 6:00 PM GMT",
   stats: {
     projects: "500+",
@@ -521,9 +521,10 @@ export const SEO_METADATA_MAP: Record<string, SeoMetadata> = {
       "logo": "https://burstdigital.co.uk/assets/logo.png",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "100 Bishopsgate",
-        "addressLocality": "London",
-        "postalCode": "EC2N 4AG",
+        "streetAddress": "Ancells Business Park, Harvest Crescent",
+        "addressLocality": "Fleet",
+        "addressRegion": "Hampshire",
+        "postalCode": "GU51",
         "addressCountry": "GB"
       },
       "telephone": "+442079460800",

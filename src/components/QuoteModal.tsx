@@ -60,7 +60,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
               Quote Request Sent!
             </h4>
             <p className="text-xs text-gray-600 dark:text-gray-300 max-w-sm mx-auto leading-relaxed">
-              Our UK team at 100 Bishopsgate, London has received your specs. A senior project manager will email you a tailored estimate within 2 business hours.
+              Our UK team in Fleet, Hampshire has received your specs. A senior project manager will email you a tailored estimate within 2 business hours.
             </p>
             <button
               onClick={() => {
