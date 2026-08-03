@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
 
             <div className="pt-2 flex items-center gap-2 text-xs text-blue-200">
               <span className="text-base">🇬🇧</span>
-              <span>Registered in England & Wales • 100 Bishopsgate, London</span>
+              <span>Registered in England & Wales • Fleet, Hampshire</span>
             </div>
           </div>
 
