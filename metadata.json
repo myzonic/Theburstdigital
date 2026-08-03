@@ -1,0 +1,6 @@
+{
+  "name": "Burst Digital",
+  "description": "UK-Based Full-Service Digital Agency - Web Development, Mobile Apps, Graphic Design, Digital Marketing, Business & Career Services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
