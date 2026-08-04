@@ -7,8 +7,8 @@ export const AGENCY_INFO = {
   headline: "Helping UK Businesses Build, Launch & Grow Digitally.",
   subheadline: "Custom websites, mobile apps, branding, creative design, bookkeeping, accounting and business solutions—all delivered by one trusted digital agency.",
   address: "Ancells Business Park, Harvest Crescent, Fleet, Hampshire, GU51",
-  phone: "+44 (0)20 7946 0800",
-  whatsapp: "+44 (0)20 7946 0912",
+  phone: "",
+  whatsapp: "",
   email: "Contact@theburstdigital.co.uk",
   workingHours: "Mon - Fri: 8:30 AM - 6:00 PM GMT",
   stats: {

@@ -102,7 +102,7 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Phone */}
+              {AGENCY_INFO.phone && (
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-blue-900/80 text-blue-300 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5" />
@@ -114,8 +114,9 @@ export const ContactSection: React.FC = () => {
                   </a>
                 </div>
               </div>
+              )}
 
-              {/* WhatsApp */}
+              {AGENCY_INFO.whatsapp && (
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-emerald-900/80 text-emerald-400 flex items-center justify-center flex-shrink-0">
                   <MessageSquare className="w-5 h-5" />
@@ -127,6 +128,7 @@ export const ContactSection: React.FC = () => {
                   </a>
                 </div>
               </div>
+              )}
 
               {/* Email */}
               <div className="flex items-start gap-4">
