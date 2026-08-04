@@ -5,8 +5,12 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:alpine AS runtime
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM node:20-alpine AS runtime
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci --only=production
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/server.ts ./server.ts
+RUN npx tsc server.ts --target es2020 --module commonjs --outDir .
+EXPOSE 3000
+CMD ["node", "server.js"]

@@ -21,7 +21,7 @@ export const ContactSection: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/xyzajydp', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,6 @@ export const ContactSection: React.FC = () => {
           service: formData.serviceRequired,
           budget: formData.budget,
           message: formData.message,
-          _replyto: formData.email,
         }),
       });
 
@@ -49,9 +48,12 @@ export const ContactSection: React.FC = () => {
           budget: '£100 - £500',
           message: ''
         });
+      } else {
+        alert('Failed to send enquiry. Please try again.');
       }
     } catch (error) {
       console.error('Form submission error:', error);
+      alert('Failed to send enquiry. Please try again.');
     } finally {
       setLoading(false);
     }
