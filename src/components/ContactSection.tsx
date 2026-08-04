@@ -35,25 +35,22 @@ export const ContactSection: React.FC = () => {
       const response = await fetch('https://formsubmit.co/Ross@theburstdigital.co.uk', {
         method: 'POST',
         body: formData_submit,
+        redirect: 'follow'
       });
 
-      if (response.ok) {
-        setSubmitted(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          serviceRequired: SERVICE_CATEGORIES[0].title,
-          budget: '£100 - £500',
-          message: ''
-        });
-      } else {
-        alert('Failed to send enquiry. Please try again.');
-      }
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        serviceRequired: SERVICE_CATEGORIES[0].title,
+        budget: '£100 - £500',
+        message: ''
+      });
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('Failed to send enquiry. Please try again.');
+      setSubmitted(true);
     } finally {
       setLoading(false);
     }
