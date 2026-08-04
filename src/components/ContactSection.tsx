@@ -21,21 +21,20 @@ export const ContactSection: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/xyzajydp', {
+      const formData_submit = new FormData();
+      formData_submit.append('name', formData.name);
+      formData_submit.append('email', formData.email);
+      formData_submit.append('phone', formData.phone);
+      formData_submit.append('company', formData.company);
+      formData_submit.append('service', formData.serviceRequired);
+      formData_submit.append('budget', formData.budget);
+      formData_submit.append('message', formData.message);
+      formData_submit.append('_captcha', 'false');
+      formData_submit.append('_next', 'https://theburstdigital.co.uk');
+
+      const response = await fetch('https://formsubmit.co/Ross@theburstdigital.co.uk', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          service: formData.serviceRequired,
-          budget: formData.budget,
-          message: formData.message,
-          _replyto: formData.email,
-        }),
+        body: formData_submit,
       });
 
       if (response.ok) {
