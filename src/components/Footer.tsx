@@ -22,11 +22,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
           
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <img
-              src={logoImage}
-              alt="Burst Digital Logo"
-              className="h-12 w-auto"
-            />
+            <div className="bg-white rounded-lg p-2 w-fit">
+              <img
+                src={logoImage}
+                alt="Burst Digital Logo"
+                className="h-16 w-auto"
+              />
+            </div>
 
             <p className="text-xs text-blue-200 leading-relaxed max-w-sm">
               Full-service UK digital agency delivering enterprise-grade web development, mobile applications, graphic design, publishing, digital marketing, and accounting services.
