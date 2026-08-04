@@ -22,11 +22,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
           
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="bg-white rounded-lg p-2 w-fit">
+            <div className="bg-white rounded-lg p-3 w-fit">
               <img
                 src={logoImage}
                 alt="Burst Digital Logo"
-                className="h-16 w-auto"
+                className="h-24 w-auto"
               />
             </div>
 

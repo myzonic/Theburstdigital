@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
             <img
               src={logoImage}
               alt="Burst Digital Logo"
-              className="h-16 w-auto group-hover:scale-105 transition-transform"
+              className="h-24 w-auto group-hover:scale-105 transition-transform"
             />
           </button>
 
