@@ -9,12 +9,12 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.hostinger.com',
-  port: 465,
-  secure: true,
+  host: process.env.SMTP_HOST || 'smtp.hostinger.com',
+  port: parseInt(process.env.SMTP_PORT || '465'),
+  secure: process.env.SMTP_SECURE !== 'false',
   auth: {
-    user: 'contact@theburstdigital.co.uk',
-    pass: 'Ross@786',
+    user: process.env.SMTP_USER || 'contact@theburstdigital.co.uk',
+    pass: process.env.SMTP_PASS || 'Ross@786',
   },
 });
 
@@ -125,6 +125,16 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);
+const server = app.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ Server running on port ${PORT}`);
+  console.log(`📧 SMTP configured for: ${process.env.SMTP_USER || 'contact@theburstdigital.co.uk'}`);
+});
+
+server.on('error', (err) => {
+  console.error('❌ Server error:', err);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
 });
