@@ -21,13 +21,12 @@ export const ContactSection: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://formspree.io/f/xyzajydp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'e3a73c99-8d2d-4e8e-b345-9c8f7a1b2c3d',
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -35,7 +34,7 @@ export const ContactSection: React.FC = () => {
           service: formData.serviceRequired,
           budget: formData.budget,
           message: formData.message,
-          redirect: 'https://theburstdigital.co.uk',
+          _replyto: formData.email,
         }),
       });
 
