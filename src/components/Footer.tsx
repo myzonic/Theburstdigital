@@ -2,6 +2,7 @@ import React from 'react';
 import { PageRoute } from '../types';
 import { AGENCY_INFO, SERVICE_CATEGORIES } from '../data/agencyData';
 import { Globe, MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
+import logoImage from '../assets/logo.png';
 
 interface FooterProps {
   onNavigate: (route: PageRoute) => void;
@@ -21,19 +22,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
           
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-[#012169] font-heading font-black text-xl shadow-md border-b-2 border-[#C8102E]">
-                BD
-              </div>
-              <div>
-                <span className="font-heading text-lg font-black text-white block leading-none">
-                  BURST DIGITAL
-                </span>
-                <span className="text-[9px] font-bold text-blue-200 tracking-[0.25em] uppercase">
-                  BUILD • LAUNCH • GROW
-                </span>
-              </div>
-            </div>
+            <img
+              src={logoImage}
+              alt="Burst Digital Logo"
+              className="h-12 w-auto"
+            />
 
             <p className="text-xs text-blue-200 leading-relaxed max-w-sm">
               Full-service UK digital agency delivering enterprise-grade web development, mobile applications, graphic design, publishing, digital marketing, and accounting services.

@@ -9,15 +9,52 @@ export const ContactSection: React.FC = () => {
     phone: '',
     company: '',
     serviceRequired: SERVICE_CATEGORIES[0].title,
-    budget: '£3,000 - £10,000',
+    budget: '£100 - £500',
     message: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xyzajydp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.serviceRequired,
+          budget: formData.budget,
+          message: formData.message,
+          _replyto: formData.email,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          serviceRequired: SERVICE_CATEGORIES[0].title,
+          budget: '£100 - £500',
+          message: ''
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -217,7 +254,9 @@ export const ContactSection: React.FC = () => {
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                       className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-xs rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
                     >
-                      <option value="Under £3,000">Under £3,000</option>
+                      <option value="£100 - £500">£100 - £500</option>
+                      <option value="£500 - £1,000">£500 - £1,000</option>
+                      <option value="£1,000 - £3,000">£1,000 - £3,000</option>
                       <option value="£3,000 - £10,000">£3,000 - £10,000</option>
                       <option value="£10,000 - £25,000">£10,000 - £25,000</option>
                       <option value="£25,000+">£25,000+ Enterprise</option>
@@ -240,9 +279,10 @@ export const ContactSection: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#012169] hover:bg-blue-900 text-white font-bold py-4 rounded-xl text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg"
+                  disabled={loading}
+                  className="w-full bg-[#012169] hover:bg-blue-900 disabled:bg-gray-400 text-white font-bold py-4 rounded-xl text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg"
                 >
-                  Send Project Enquiry
+                  {loading ? 'Sending...' : 'Send Project Enquiry'}
                   <Send className="w-4 h-4 text-[#C8102E]" />
                 </button>
               </form>

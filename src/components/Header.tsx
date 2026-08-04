@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageRoute } from '../types';
 import { SERVICE_CATEGORIES } from '../data/agencyData';
+import logoImage from '../assets/logo.png';
 import { 
   ChevronDown, 
   Menu, 
@@ -54,28 +55,16 @@ export const Header: React.FC<HeaderProps> = ({
       <header className="sticky top-0 z-40 w-full glass-header border-b border-gray-200/80 dark:border-gray-800/80 transition-colors shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
-          {/* Logo - BD Burst Digital */}
-          <button 
+          {/* Logo - Burst Digital */}
+          <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 group text-left focus:outline-none"
+            className="flex items-center group text-left focus:outline-none"
           >
-            {/* Custom "BD" Logo Badge matching reference image */}
-            <div className="relative w-12 h-12 bg-[#012169] rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden border border-blue-950">
-              {/* Corner Red Accent Badge */}
-              <div className="absolute -top-3 -right-3 w-7 h-7 bg-[#C8102E] rotate-45 transform"></div>
-              <span className="font-heading text-2xl font-black text-white tracking-tighter z-10 pl-0.5">
-                BD
-              </span>
-            </div>
-            
-            <div className="flex flex-col">
-              <span className="font-heading text-xl font-extrabold text-[#012169] dark:text-white tracking-tight leading-none group-hover:text-[#C8102E] transition-colors">
-                BURST DIGITAL
-              </span>
-              <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400 tracking-[0.25em] uppercase mt-1">
-                BUILD • LAUNCH • GROW
-              </span>
-            </div>
+            <img
+              src={logoImage}
+              alt="Burst Digital Logo"
+              className="h-16 w-auto group-hover:scale-105 transition-transform"
+            />
           </button>
 
           {/* Desktop Navigation Links (Uppercase) */}
