@@ -58,13 +58,21 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Logo - Burst Digital */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center group text-left focus:outline-none"
+            className="flex items-center gap-3 group text-left focus:outline-none"
           >
             <img
               src={logoImage}
               alt="Burst Digital Logo"
-              className="h-24 w-auto group-hover:scale-105 transition-transform"
+              className="h-20 w-auto group-hover:scale-105 transition-transform"
             />
+            <div className="hidden sm:flex flex-col">
+              <span className="font-heading text-lg font-black text-[#012169] dark:text-white tracking-tight leading-none">
+                BURST DIGITAL
+              </span>
+              <span className="text-[9px] font-bold text-gray-500 dark:text-gray-400 tracking-[0.25em] uppercase">
+                BUILD • LAUNCH • GROW
+              </span>
+            </div>
           </button>
 
           {/* Desktop Navigation Links (Uppercase) */}

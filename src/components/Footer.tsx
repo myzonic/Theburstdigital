@@ -30,6 +30,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
               />
             </div>
 
+            <div>
+              <h3 className="font-heading text-xl font-black text-white leading-none">
+                BURST DIGITAL
+              </h3>
+              <p className="text-[9px] font-bold text-blue-300 tracking-[0.25em] uppercase mt-1">
+                BUILD • LAUNCH • GROW
+              </p>
+            </div>
+
             <p className="text-xs text-blue-200 leading-relaxed max-w-sm">
               Full-service UK digital agency delivering enterprise-grade web development, mobile applications, graphic design, publishing, digital marketing, and accounting services.
             </p>

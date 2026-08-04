@@ -85,7 +85,7 @@ export const ContactSection: React.FC = () => {
                 Burst Digital Ltd
               </h3>
               <p className="text-xs text-blue-200 leading-relaxed">
-                Our central London team is ready to consult on your digital strategy, web application, branding or accounting requirements.
+                Our UK team is ready to consult on your digital strategy, web application, branding or accounting requirements.
               </p>
             </div>
 
@@ -149,7 +149,7 @@ export const ContactSection: React.FC = () => {
             <div className="bg-blue-950/80 rounded-2xl p-4 border border-blue-800 flex items-center gap-3">
               <Clock className="w-5 h-5 text-amber-400 flex-shrink-0" />
               <p className="text-xs text-blue-200">
-                <strong className="text-white">UK Response SLA:</strong> Average response time is under 120 minutes during London business hours.
+                <strong className="text-white">UK Response SLA:</strong> Average response time is under 120 minutes during UK business hours.
               </p>
             </div>
           </div>
