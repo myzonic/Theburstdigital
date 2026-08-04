@@ -1,7 +1,6 @@
-import express, { Request, Response } from 'express';
-import nodemailer from 'nodemailer';
-import path from 'path';
-import fs from 'fs';
+const express = require('express');
+const nodemailer = require('nodemailer');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,17 +18,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
-  service: string;
-  budget: string;
-  message: string;
-}
-
-const generateEmailTemplate = (data: FormData): string => {
+const generateEmailTemplate = (data) => {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -74,12 +63,7 @@ const generateEmailTemplate = (data: FormData): string => {
               <div class="field-label">Phone</div>
               <div class="field-value"><a href="tel:${escapeHtml(data.phone)}" style="color: #012169; text-decoration: none;">${escapeHtml(data.phone)}</a></div>
             </div>
-            ${data.company ? `
-            <div class="field">
-              <div class="field-label">Company</div>
-              <div class="field-value">${escapeHtml(data.company)}</div>
-            </div>
-            ` : ''}
+            ${data.company ? `<div class="field"><div class="field-label">Company</div><div class="field-value">${escapeHtml(data.company)}</div></div>` : ''}
           </div>
 
           <div class="section">
@@ -105,14 +89,8 @@ const generateEmailTemplate = (data: FormData): string => {
         </div>
 
         <div class="footer">
-          <p style="margin: 0 0 10px 0;">
-            <strong>Burst Digital Ltd</strong><br>
-            Fleet, Hampshire • United Kingdom<br>
-            <a href="https://theburstdigital.co.uk" style="color: #C8102E; text-decoration: none;">theburstdigital.co.uk</a>
-          </p>
-          <p style="margin: 0; font-size: 11px; opacity: 0.8;">
-            This is an automated enquiry forwarding system. Please do not reply to this email.
-          </p>
+          <p style="margin: 0 0 10px 0;"><strong>Burst Digital Ltd</strong><br>Fleet, Hampshire • United Kingdom<br><a href="https://theburstdigital.co.uk" style="color: #C8102E; text-decoration: none;">theburstdigital.co.uk</a></p>
+          <p style="margin: 0; font-size: 11px; opacity: 0.8;">This is an automated enquiry forwarding system. Please do not reply to this email.</p>
         </div>
       </div>
     </body>
@@ -120,21 +98,14 @@ const generateEmailTemplate = (data: FormData): string => {
   `;
 };
 
-function escapeHtml(text: string): string {
-  const map: { [key: string]: string } = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  };
+function escapeHtml(text) {
+  const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
   return text.replace(/[&<>"']/g, (m) => map[m]);
 }
 
-app.post('/api/contact', async (req: Request, res: Response) => {
+app.post('/api/contact', async (req, res) => {
   try {
-    const data: FormData = req.body;
-
+    const data = req.body;
     const mailOptions = {
       from: 'contact@theburstdigital.co.uk',
       to: 'Ross@theburstdigital.co.uk',
@@ -142,9 +113,7 @@ app.post('/api/contact', async (req: Request, res: Response) => {
       html: generateEmailTemplate(data),
       replyTo: data.email,
     };
-
     await transporter.sendMail(mailOptions);
-
     res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('Email sending error:', error);
@@ -152,7 +121,7 @@ app.post('/api/contact', async (req: Request, res: Response) => {
   }
 });
 
-app.get('*', (req: Request, res: Response) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
