@@ -14,17 +14,53 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     phone: '',
     company: '',
     serviceRequired: SERVICE_CATEGORIES[0].title,
-    budget: '£3,000 - £10,000',
+    budget: '£100 - £500',
     message: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const formData_submit = new FormData();
+      formData_submit.append('name', formData.name);
+      formData_submit.append('email', formData.email);
+      formData_submit.append('phone', formData.phone);
+      formData_submit.append('company', formData.company);
+      formData_submit.append('service', formData.serviceRequired);
+      formData_submit.append('budget', formData.budget);
+      formData_submit.append('message', formData.message);
+      formData_submit.append('_captcha', 'false');
+      formData_submit.append('_next', 'https://theburstdigital.co.uk');
+
+      await fetch('https://formsubmit.co/Ross@theburstdigital.co.uk', {
+        method: 'POST',
+        body: formData_submit,
+        redirect: 'follow'
+      });
+
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        serviceRequired: SERVICE_CATEGORIES[0].title,
+        budget: '£100 - £500',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -73,52 +109,52 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="font-bold text-gray-700 dark:text-gray-300 uppercase block mb-1">Full Name *</label>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase">Name *</label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Sarah Jenkins"
+                  placeholder="John Smith"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-slate-50 dark:bg-slate-800 text-gray-900 dark:text-white rounded-xl px-3.5 py-2.5 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                  className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                 />
               </div>
 
-              <div>
-                <label className="font-bold text-gray-700 dark:text-gray-300 uppercase block mb-1">Business Email *</label>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase">Email *</label>
                 <input
                   type="email"
                   required
-                  placeholder="sarah@company.co.uk"
+                  placeholder="john@company.co.uk"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-slate-50 dark:bg-slate-800 text-gray-900 dark:text-white rounded-xl px-3.5 py-2.5 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                  className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="font-bold text-gray-700 dark:text-gray-300 uppercase block mb-1">UK Phone Number *</label>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase">Phone *</label>
                 <input
                   type="tel"
                   required
-                  placeholder="+44 20 7946 0000"
+                  placeholder="+44 7123 456789"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full bg-slate-50 dark:bg-slate-800 text-gray-900 dark:text-white rounded-xl px-3.5 py-2.5 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                  className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                 />
               </div>
 
-              <div>
-                <label className="font-bold text-gray-700 dark:text-gray-300 uppercase block mb-1">Service Division *</label>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase">Service *</label>
                 <select
                   value={formData.serviceRequired}
                   onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                  className="w-full bg-slate-50 dark:bg-slate-800 text-gray-900 dark:text-white rounded-xl px-3.5 py-2.5 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                  className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                 >
                   {SERVICE_CATEGORIES.map(c => (
                     <option key={c.id} value={c.title}>{c.title}</option>
@@ -127,41 +163,42 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            <div>
-              <label className="font-bold text-gray-700 dark:text-gray-300 uppercase block mb-1">Target Budget Range *</label>
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase">Estimated Budget *</label>
               <select
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 text-gray-900 dark:text-white rounded-xl px-3.5 py-2.5 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
               >
-                <option value="Under £3,000">Under £3,000 (Startup Starter)</option>
-                <option value="£3,000 - £10,000">£3,000 - £10,000 (Professional Growth)</option>
-                <option value="£10,000 - £25,000">£10,000 - £25,000 (Custom Engineering)</option>
-                <option value="£25,000+">£25,000+ (Enterprise Transformation)</option>
+                <option value="£100 - £500">£100 - £500</option>
+                <option value="£500 - £1,000">£500 - £1,000</option>
+                <option value="£1,000 - £3,000">£1,000 - £3,000</option>
+                <option value="£3,000 - £10,000">£3,000 - £10,000</option>
+                <option value="£10,000 - £25,000">£10,000 - £25,000</option>
+                <option value="£25,000+">£25,000+ Enterprise</option>
               </select>
             </div>
 
-            <div>
-              <label className="font-bold text-gray-700 dark:text-gray-300 uppercase block mb-1">Project Details / Goals *</label>
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase">Project Message *</label>
               <textarea
-                rows={3}
+                rows={4}
                 required
-                placeholder="Share your goals, timeline or tech stack preferences..."
+                placeholder="Briefly describe your objectives, timeframe, or specific technology requirements..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 text-gray-900 dark:text-white rounded-xl p-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl p-4 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
               ></textarea>
             </div>
 
-            <div className="pt-2">
-              <button
-                type="submit"
-                className="w-full bg-[#012169] hover:bg-blue-900 text-white font-bold py-3.5 rounded-xl uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg"
-              >
-                Submit Quote Request
-                <Send className="w-4 h-4 text-[#C8102E]" />
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#012169] hover:bg-blue-900 disabled:bg-gray-400 text-white font-bold py-4 rounded-xl text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg"
+            >
+              {loading ? 'Sending...' : 'Submit Quote Request'}
+              <Send className="w-4 h-4 text-[#C8102E]" />
+            </button>
           </form>
         )}
 
