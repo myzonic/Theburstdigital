@@ -66,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="h-16 w-auto group-hover:scale-105 transition-transform"
             />
             <div className="flex flex-col">
-              <span className="font-heading text-sm sm:text-lg font-black text-[#012169] dark:text-white tracking-tight leading-none">
+              <span className="font-heading text-sm sm:text-lg font-black text-[#012169] tracking-tight leading-none">
                 BURST DIGITAL
               </span>
               <span className="text-[8px] sm:text-[9px] font-bold text-gray-500 dark:text-gray-400 tracking-[0.25em] uppercase">
