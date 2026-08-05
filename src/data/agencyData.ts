@@ -336,7 +336,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     client: "Energise UK",
     location: "Edinburgh, UK",
     description: "4K motion graphics promo video, 15s Instagram Reels & TikTok cuts, color grading, and custom sound design.",
-    image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=1200&q=80",
     stats: "4.8M Organic Views",
     tags: ["Motion Graphics", "Reels/Shorts", "4K Video", "Sound Design"]
   }
