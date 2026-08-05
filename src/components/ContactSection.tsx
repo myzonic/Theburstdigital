@@ -187,7 +187,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="John Smith"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-xs rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                     />
                   </div>
 
@@ -200,7 +200,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="john@company.co.uk"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-xs rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                     />
                   </div>
                 </div>
@@ -215,7 +215,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="+44 7123 456789"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-xs rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                     />
                   </div>
 
@@ -227,7 +227,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="Acme UK Ltd"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-xs rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                     />
                   </div>
                 </div>
@@ -239,7 +239,7 @@ export const ContactSection: React.FC = () => {
                     <select
                       value={formData.serviceRequired}
                       onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-xs rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                     >
                       {SERVICE_CATEGORIES.map(c => (
                         <option key={c.id} value={c.title}>{c.title}</option>
@@ -253,7 +253,7 @@ export const ContactSection: React.FC = () => {
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-xs rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                      className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl px-4 py-3 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                     >
                       <option value="£100 - £500">£100 - £500</option>
                       <option value="£500 - £1,000">£500 - £1,000</option>
@@ -274,7 +274,7 @@ export const ContactSection: React.FC = () => {
                     placeholder="Briefly describe your objectives, timeframe, or specific technology requirements..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-xs rounded-xl p-4 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169]"
+                    className="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white text-base rounded-xl p-4 border border-gray-200 dark:border-slate-700 focus:outline-none focus:border-[#012169] focus:ring-2 focus:ring-[#012169]/30 transition-colors"
                   ></textarea>
                 </div>
 

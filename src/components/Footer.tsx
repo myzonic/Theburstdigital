@@ -22,11 +22,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
           
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="bg-white rounded-lg p-3 w-fit">
+            <div className="bg-white rounded-xl p-3 w-fit shadow-md">
               <img
                 src={logoImage}
                 alt="Burst Digital Logo"
-                className="h-24 w-auto"
+                className="h-16 w-auto"
               />
             </div>
 
@@ -51,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
 
           {/* Column 2: Quick Links */}
           <div className="space-y-3">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-red-400">
+            <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-[#FF4D6A]">
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs">
@@ -95,7 +95,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
 
           {/* Column 3: Services Divisions */}
           <div className="space-y-3">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-red-400">
+            <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-[#FF4D6A]">
               Service Divisions
             </h4>
             <ul className="space-y-2 text-xs">
@@ -117,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
 
           {/* Column 4: Compliance & Legal */}
           <div className="space-y-3">
-            <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-red-400">
+            <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-[#FF4D6A]">
               Legal & Policies
             </h4>
             <ul className="space-y-2 text-xs">

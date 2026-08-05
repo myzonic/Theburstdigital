@@ -268,7 +268,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     title: "Fintech Banking Portal & Mobile App",
     category: "Websites",
     client: "Apex Wealth UK",
-    location: "London, UK",
+    location: "Hampshire, UK",
     description: "Next.js 15 enterprise banking platform with real-time analytics, open banking API integrations, and biometric mobile application.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     stats: "+340% User Onboarding Speed",
@@ -279,7 +279,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     title: "Luxury Fashion Ecommerce Store",
     category: "Ecommerce",
     client: "Savile Row Atelier",
-    location: "Mayfair, London",
+    location: "Guildford, Surrey",
     description: "Bespoke Shopify Plus store featuring 3D product visualizer, custom size recommender, and multi-currency checkout.",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
     stats: "£2.4M Revenue in Q1",
@@ -312,7 +312,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     title: "Commercial Property Investor Portal",
     category: "Graphic Design",
     client: "Kensington Real Estate",
-    location: "London, UK",
+    location: "Reading, Berkshire",
     description: "High-end 48-page corporate prospectus, interactive floorplan brochure, and digital presentation deck for European investors.",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
     stats: "£45M Investment Secured",
@@ -415,7 +415,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Alastair Montgomery",
     role: "Chief Executive Officer",
     company: "Vanguard Capital UK",
-    location: "City of London",
+    location: "Basingstoke, Hampshire",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
     content: "Burst Digital transformed our corporate portal and wealth app. Their engineering rigor, speed, and Swiss-inspired minimalism elevated our brand to Fortune 500 status. Outstanding UK team!",
     rating: 5,
@@ -426,7 +426,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Victoria Stirling",
     role: "Founder & Creative Director",
     company: "Stirling & Co Luxury Goods",
-    location: "Mayfair, London",
+    location: "Farnborough, Hampshire",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
     content: "Our Shopify store revenue increased by 280% within 90 days of launch. The UI/UX is world-class, matching Apple and Stripe. Burst Digital handles our dev, branding, and bookkeeping seamlessly.",
     rating: 5,
@@ -437,7 +437,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Dr. Jonathan Hughes",
     role: "Medical Director",
     company: "Harley Street Health Group",
-    location: "Marylebone, London",
+    location: "Woking, Surrey",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
     content: "The mobile telehealth app developed by Burst Digital is NHS-compliant, lightning fast, and effortless for our patients. Their team is responsive, professional, and truly top tier.",
     rating: 5,
@@ -509,8 +509,8 @@ export const PRICING_PLANS: PricingPlan[] = [
 export const SEO_METADATA_MAP: Record<string, SeoMetadata> = {
   home: {
     title: "Burst Digital | UK's #1 Full-Service Digital Agency",
-    description: "Burst Digital is a premier UK digital agency offering custom websites, mobile apps, graphic design, SEO, bookkeeping & business solutions across London & UK.",
-    keywords: ["digital agency uk", "web development agency London", "mobile app developer uk", "graphic design agency", "uk bookkeeping services"],
+    description: "Burst Digital is a premier UK digital agency offering custom websites, mobile apps, graphic design, SEO, bookkeeping & business solutions across the UK.",
+    keywords: ["digital agency uk", "web development agency uk", "mobile app developer uk", "graphic design agency", "uk bookkeeping services"],
     canonicalUrl: "https://burstdigital.co.uk/",
     ogType: "website",
     schemaJson: {
@@ -534,7 +534,7 @@ export const SEO_METADATA_MAP: Record<string, SeoMetadata> = {
   services: {
     title: "Our Digital Services | Burst Digital UK",
     description: "Explore Burst Digital's full spectrum of services: Web Development, Mobile Apps, Graphic Design, Publishing, Video, SEO, Bookkeeping & Career Coaching.",
-    keywords: ["web dev services uk", "cms development london", "ecommerce agency uk", "digital marketing agency"],
+    keywords: ["web dev services uk", "cms development uk", "ecommerce agency uk", "digital marketing agency"],
     canonicalUrl: "https://burstdigital.co.uk/services",
     ogType: "service",
     schemaJson: {
@@ -550,7 +550,7 @@ export const SEO_METADATA_MAP: Record<string, SeoMetadata> = {
   portfolio: {
     title: "Our Work & Portfolio | Burst Digital UK",
     description: "View case studies and award-winning projects crafted by Burst Digital for UK startups, SMEs, and enterprise brands.",
-    keywords: ["burst digital portfolio", "web design case studies uk", "mobile app portfolio london"],
+    keywords: ["burst digital portfolio", "web design case studies uk", "mobile app portfolio uk"],
     canonicalUrl: "https://burstdigital.co.uk/portfolio",
     ogType: "website",
     schemaJson: {
@@ -562,7 +562,7 @@ export const SEO_METADATA_MAP: Record<string, SeoMetadata> = {
   pricing: {
     title: "Transparent Pricing Plans | Burst Digital UK",
     description: "Fair, transparent pricing for web development, app creation, graphic design, and digital marketing in the UK.",
-    keywords: ["web design cost uk", "app development price london", "burst digital pricing"],
+    keywords: ["web design cost uk", "app development price uk", "burst digital pricing"],
     canonicalUrl: "https://burstdigital.co.uk/pricing",
     ogType: "website",
     schemaJson: {
@@ -573,8 +573,8 @@ export const SEO_METADATA_MAP: Record<string, SeoMetadata> = {
   },
   contact: {
     title: "Contact Burst Digital | UK Digital Agency",
-    description: "Get in touch with Burst Digital London team for a free project quote, WhatsApp consultation or phone call.",
-    keywords: ["contact burst digital", "london digital agency contact", "free digital quote uk"],
+    description: "Get in touch with Burst Digital UK team for a free project quote, WhatsApp consultation or phone call.",
+    keywords: ["contact burst digital", "uk digital agency contact", "free digital quote uk"],
     canonicalUrl: "https://burstdigital.co.uk/contact",
     ogType: "website",
     schemaJson: {

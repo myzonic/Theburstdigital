@@ -53,17 +53,17 @@ export const Header: React.FC<HeaderProps> = ({
     <>
       {/* Main Glass Header Navigation */}
       <header className="sticky top-0 z-40 w-full glass-header border-b border-gray-200/80 dark:border-gray-800/80 transition-colors shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+
           {/* Logo - Burst Digital */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 group text-left focus:outline-none"
+            className="flex items-center gap-3 group text-left rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E] focus-visible:ring-offset-2"
           >
             <img
               src={logoImage}
               alt="Burst Digital Logo"
-              className="h-20 w-auto group-hover:scale-105 transition-transform"
+              className="h-16 w-auto group-hover:scale-105 transition-transform"
             />
             <div className="hidden sm:flex flex-col">
               <span className="font-heading text-lg font-black text-[#012169] dark:text-white tracking-tight leading-none">
@@ -212,7 +212,7 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Right Controls: Theme Toggle + Get Free Quote Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={onToggleDarkMode}
               className="p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
@@ -231,16 +231,19 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Mobile Hamburger Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={onToggleDarkMode}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-300"
+              aria-label="Toggle light or dark mode"
+              className="p-3 rounded-xl text-gray-600 dark:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E]"
             >
-              {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
+              {isDarkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-700" />}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-white"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
+              className="p-3 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E]"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -250,43 +253,28 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-800 px-4 pt-4 pb-6 space-y-3 animate-in slide-in-from-top-4 duration-200">
-            <button
-              onClick={() => handleNavClick('home')}
-              className="block w-full text-left py-2 text-sm font-bold uppercase text-gray-800 dark:text-white hover:text-[#C8102E]"
-            >
-              HOME
-            </button>
-            <button
-              onClick={() => handleNavClick('services')}
-              className="block w-full text-left py-2 text-sm font-bold uppercase text-gray-800 dark:text-white hover:text-[#C8102E]"
-            >
-              SERVICES
-            </button>
-            <button
-              onClick={() => handleNavClick('portfolio')}
-              className="block w-full text-left py-2 text-sm font-bold uppercase text-gray-800 dark:text-white hover:text-[#C8102E]"
-            >
-              PORTFOLIO
-            </button>
-            <button
-              onClick={() => handleNavClick('about')}
-              className="block w-full text-left py-2 text-sm font-bold uppercase text-gray-800 dark:text-white hover:text-[#C8102E]"
-            >
-              ABOUT
-            </button>
-            <button
-              onClick={() => handleNavClick('pricing')}
-              className="block w-full text-left py-2 text-sm font-bold uppercase text-gray-800 dark:text-white hover:text-[#C8102E]"
-            >
-              PRICING
-            </button>
-            <button
-              onClick={() => handleNavClick('contact')}
-              className="block w-full text-left py-2 text-sm font-bold uppercase text-gray-800 dark:text-white hover:text-[#C8102E]"
-            >
-              CONTACT
-            </button>
+          <div className="lg:hidden bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-800 px-4 pt-4 pb-6 space-y-1 animate-in slide-in-from-top-4 duration-200">
+            {([
+              ['home', 'HOME'],
+              ['services', 'SERVICES'],
+              ['portfolio', 'PORTFOLIO'],
+              ['about', 'ABOUT'],
+              ['pricing', 'PRICING'],
+              ['blog', 'BLOG'],
+              ['contact', 'CONTACT'],
+            ] as [PageRoute, string][]).map(([route, label]) => (
+              <button
+                key={route}
+                onClick={() => handleNavClick(route)}
+                className={`block w-full text-left min-h-11 py-3 px-2 -mx-2 rounded-lg text-sm font-bold uppercase transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E] ${
+                  currentRoute === route
+                    ? 'text-[#C8102E] bg-red-50 dark:bg-red-950/30'
+                    : 'text-gray-800 dark:text-white hover:text-[#C8102E]'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
             <div className="pt-2">
               <button
                 onClick={() => {

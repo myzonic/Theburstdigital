@@ -25,16 +25,16 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenQuoteModal }) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950/20 pt-8 pb-20 lg:pt-14 lg:pb-28">
       
-      {/* Background London Skyline Vector Contour (Pure SVG) */}
+      {/* Background Skyline Vector Contour (Pure SVG) */}
       <div className="absolute bottom-0 left-0 right-0 h-48 opacity-10 dark:opacity-5 pointer-events-none flex items-end justify-center overflow-hidden">
         <svg viewBox="0 0 1440 220" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#012169]">
           <path d="M0 220h1440v-40h-20v-30h-15v30h-30v-70h-10v70h-40v-110h-20v110h-50v-60h-15v60h-40v-160h-10v160h-30v-40h-20v40h-60v-90h-15v90h-50v-130h-20v130h-40v-50h-30v50h-70v-180h-15v180h-50v-80h-20v80h-60v-120h-15v120h-50v-40h-20v40h-60v-100h-15v100h-50v-150h-20v150h-40v-60h-20v60h-60v-90h-15v90H0v40z" fill="currentColor"/>
-          {/* London Eye Circle */}
+          {/* Accent Circle */}
           <circle cx="1180" cy="110" r="50" stroke="currentColor" strokeWidth="3" fill="none" />
-          {/* Big Ben Clock Tower */}
+          {/* Tower Accent */}
           <rect x="280" y="20" width="24" height="180" fill="currentColor" />
           <polygon points="280,20 292,0 304,20" fill="currentColor" />
-          {/* Gherkin Tower */}
+          {/* Dome Accent */}
           <ellipse cx="880" cy="110" rx="25" ry="80" fill="currentColor" />
         </svg>
       </div>
@@ -158,7 +158,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenQuoteModal }) => {
               {/* Laptop Display Inner Screen */}
               <div className="bg-white dark:bg-slate-950 rounded-b-xl p-4 space-y-3 relative overflow-hidden min-h-[260px] flex flex-col justify-center items-center text-center">
                 
-                {/* London Skyline Graphic in Screen */}
+                {/* UK Pattern Graphic in Screen */}
                 <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#012169_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
                 <div className="relative z-10 max-w-xs space-y-2">
@@ -171,7 +171,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onOpenQuoteModal }) => {
                   </h3>
                   <div className="pt-1 flex justify-center gap-2">
                     <span className="text-[10px] bg-[#012169] text-white px-3 py-1 rounded font-semibold">
-                      London Hub
+                      UK Based
                     </span>
                     <span className="text-[10px] border border-[#C8102E] text-[#C8102E] px-3 py-1 rounded font-semibold">
                       Get Started
